@@ -46,6 +46,7 @@ class _CardPageState extends State<CardPage> {
   }
 
   Widget getBody() {
+    var size = MediaQuery.of(context).size;
     final PageController controller = PageController();
     return SingleChildScrollView(
       child: Column(
@@ -55,7 +56,7 @@ class _CardPageState extends State<CardPage> {
           ),
           Container(
             width: double.infinity,
-            height: 400,
+            height: 240,
             child: PageView(
               controller: controller,
               children: <Widget>[
@@ -63,6 +64,127 @@ class _CardPageState extends State<CardPage> {
                 Center(
                   child: Text('Second Page'),
                 ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: white,
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: grey.withOpacity(0.1),
+                  spreadRadius: 10,
+                  blurRadius: 10,
+                  // changes position of shadow
+                ),
+              ],
+            ),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, bottom: 10),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: Container(
+                          width: size.width / 2,
+                          height: 55,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom:
+                                      BorderSide(color: primary, width: 3.5))),
+                          child: Center(
+                            child: Text(
+                              "Operations",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: primary,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Flexible(
+                        child: Container(
+                          width: size.width / 2,
+                          height: 55,
+                          decoration: BoxDecoration(
+                              border: Border(
+                                  bottom: BorderSide(
+                                      color: black.withOpacity(0.05),
+                                      width: 1))),
+                          child: Center(
+                            child: Text(
+                              "History",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  color: primary.withOpacity(0.5),
+                                  fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Column(
+                  children: List.generate(4, (index) {
+                    return Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20,bottom: 20),
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          color: grey.withOpacity(0.1),
+                          spreadRadius: 10,
+                          blurRadius: 10,
+                          // changes position of shadow
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Row(
+                        children: [
+                          Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: secondary.withOpacity(0.5),
+                            borderRadius: BorderRadius.circular(12)),
+                        child: Center(
+                          child: Icon(
+                            Ionicons.md_done_all,
+                            color: primary,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 15,),
+                      Text(
+                        "Top up card",
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.w600),
+                      )
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+                  }),
+                ),
+                SizedBox(height: 30,)
               ],
             ),
           )
@@ -115,33 +237,47 @@ class _CardPageState extends State<CardPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Feather.credit_card,size: 30,color: white.withOpacity(0.3),),
-                    SizedBox(height: 15,),
-                    Text("5436 5436 **** 6643",style: TextStyle(
-                      color: white.withOpacity(0.8),
-                      fontSize: 20,
-                      wordSpacing: 15
-                    ),)
+                    Icon(
+                      Feather.credit_card,
+                      size: 30,
+                      color: white.withOpacity(0.3),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      "5436 5436 **** 6643",
+                      style: TextStyle(
+                          color: white.withOpacity(0.8),
+                          fontSize: 20,
+                          wordSpacing: 15),
+                    )
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                       Text("VALID DATE",style: TextStyle(
-                      color: white.withOpacity(0.3),
-                      fontSize: 12
-                    ),),
-                    SizedBox(height: 4,),
-                     Text("08 / 24",style: TextStyle(
-                      color: white,
-                      fontSize: 13
-                    ),),
-                    ],
-                   ),
-                   Image.asset("assets/images/master_card_logo.png",width: 50,)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "VALID DATE",
+                          style: TextStyle(
+                              color: white.withOpacity(0.3), fontSize: 12),
+                        ),
+                        SizedBox(
+                          height: 4,
+                        ),
+                        Text(
+                          "08 / 24",
+                          style: TextStyle(color: white, fontSize: 13),
+                        ),
+                      ],
+                    ),
+                    Image.asset(
+                      "assets/images/master_card_logo.png",
+                      width: 50,
+                    )
                   ],
                 )
               ],
