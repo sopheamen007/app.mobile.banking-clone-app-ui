@@ -1,3 +1,4 @@
+import 'package:banking_app/pages/card_page.dart';
 import 'package:banking_app/theme/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -353,7 +354,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
                       "ADD CARD",
                       style: TextStyle(
                           fontSize: 11,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w600,
                           color: primary),
                     )
                   ],
@@ -364,63 +365,68 @@ class _DashbaordPageState extends State<DashbaordPage> {
           SizedBox(
             height: 15,
           ),
-          Container(
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: white,
-              borderRadius: BorderRadius.circular(12),
-              boxShadow: [
-                BoxShadow(
-                  color: grey.withOpacity(0.1),
-                  spreadRadius: 10,
-                  blurRadius: 10,
-                  // changes position of shadow
-                ),
-              ],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(18),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                       Row(
-                    children: [
-                      Container(
-                        width: 40,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            color: secondary.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Center(
-                          child: Icon(
-                            Ionicons.md_done_all,
-                            color: primary,
+          GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (_) => CardPage()));
+            },
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: white,
+                borderRadius: BorderRadius.circular(12),
+                boxShadow: [
+                  BoxShadow(
+                    color: grey.withOpacity(0.1),
+                    spreadRadius: 10,
+                    blurRadius: 10,
+                    // changes position of shadow
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                         Row(
+                      children: [
+                        Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              color: secondary.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(12)),
+                          child: Center(
+                            child: Icon(
+                              Ionicons.md_done_all,
+                              color: primary,
+                            ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Text(
-                        "EUR *2330",
-                        style: TextStyle(
-                            fontSize: 15, ),
-                      )
-                    ],
-                  ),
-                  Text(
-                        "8 199.24 EUR",
-                        style: TextStyle(
-                            fontSize: 15, fontWeight: FontWeight.w600),
-                      )
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          "EUR *2330",
+                          style: TextStyle(
+                              fontSize: 15, ),
+                        )
+                      ],
+                    ),
+                    Text(
+                          "8 199.24 EUR",
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w600),
+                        )
+                      
                     
-                  
-                  
-                    ],
-                  )
-                ],
+                    
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           )
