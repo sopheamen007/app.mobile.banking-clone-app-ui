@@ -24,7 +24,7 @@ class _RootAppState extends State<RootApp> {
               selectedTab(4);
             },
             child: Icon(
-              Icons.add,
+              AntDesign.creditcard,
               size: 25,
             ),
             backgroundColor: primary
@@ -39,20 +39,40 @@ class _RootAppState extends State<RootApp> {
       index: pageIndex,
       children: [
         DashbaordPage(),
-        DashbaordPage(),
-        DashbaordPage(),
-        DashbaordPage(),
-        DashbaordPage(),
+        Center(
+          child: Text("Chat Page",style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),),
+        ),
+        Center(
+          child: Text("Notification Page",style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),),
+        ),
+        Center(
+          child: Text("Account Page",style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),),
+        ),
+        Center(
+          child: Text("Card Page",style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold
+          ),),
+        ),
       ],
     );
   }
 
   Widget getFooter() {
     List<IconData> iconItems = [
-      Ionicons.md_calendar,
-      Ionicons.md_stats,
-      Ionicons.md_wallet,
-      Ionicons.ios_person,
+      MaterialCommunityIcons.view_grid,
+      MaterialCommunityIcons.comment,
+      MaterialCommunityIcons.bell,
+      MaterialCommunityIcons.account_circle,
     ];
 
     return AnimatedBottomNavigationBar(

@@ -224,12 +224,13 @@ class _DashbaordPageState extends State<DashbaordPage> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                                color: secondary.withOpacity(0.5),
+                                color: secondary.withOpacity(0.3),
                                 borderRadius: BorderRadius.circular(12)),
                             child: Center(
                               child: Icon(
-                                Ionicons.md_wallet,
+                                AntDesign.wallet,
                                 color: primary,
+                                 size: 20,
                               ),
                             ),
                           ),
@@ -266,12 +267,13 @@ class _DashbaordPageState extends State<DashbaordPage> {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                            color: secondary.withOpacity(0.5),
+                            color: secondary.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(12)),
                         child: Center(
                           child: Icon(
-                            Ionicons.md_done_all,
+                            MaterialIcons.euro_symbol,
                             color: primary,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -303,12 +305,13 @@ class _DashbaordPageState extends State<DashbaordPage> {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                            color: secondary.withOpacity(0.5),
+                            color: secondary.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(12)),
                         child: Center(
                           child: Icon(
-                            Ionicons.md_done_all,
+                            MaterialCommunityIcons.currency_gbp,
                             color: primary,
+                            size: 20,
                           ),
                         ),
                       ),
@@ -396,12 +399,13 @@ class _DashbaordPageState extends State<DashbaordPage> {
                           width: 40,
                           height: 40,
                           decoration: BoxDecoration(
-                              color: secondary.withOpacity(0.5),
+                              color: secondary.withOpacity(0.3),
                               borderRadius: BorderRadius.circular(12)),
                           child: Center(
                             child: Icon(
-                              Ionicons.md_done_all,
+                              AntDesign.creditcard,
                               color: primary,
+                              size: 20,
                             ),
                           ),
                         ),

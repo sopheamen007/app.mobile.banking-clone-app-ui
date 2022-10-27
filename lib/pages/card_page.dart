@@ -1,3 +1,4 @@
+import 'package:banking_app/data_json/card_operations_json.dart';
 import 'package:banking_app/theme/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
@@ -137,7 +138,7 @@ class _CardPageState extends State<CardPage> {
                   height: 20,
                 ),
                 Column(
-                  children: List.generate(4, (index) {
+                  children: List.generate(cardOperations.length, (index) {
                     return Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20,bottom: 20),
                   child: Container(
@@ -162,18 +163,19 @@ class _CardPageState extends State<CardPage> {
                         width: 40,
                         height: 40,
                         decoration: BoxDecoration(
-                            color: secondary.withOpacity(0.5),
+                            color: secondary.withOpacity(0.3),
                             borderRadius: BorderRadius.circular(12)),
                         child: Center(
                           child: Icon(
-                            Ionicons.md_done_all,
+                           cardOperations[index]['icon'],
                             color: primary,
+                            size: 20,
                           ),
                         ),
                       ),
                       SizedBox(width: 15,),
                       Text(
-                        "Top up card",
+                        cardOperations[index]['title'],
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.w600),
                       )
