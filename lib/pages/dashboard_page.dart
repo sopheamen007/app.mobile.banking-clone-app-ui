@@ -1,3 +1,4 @@
+import 'package:banking_app/data_json/balance_json.dart';
 import 'package:banking_app/pages/card_page.dart';
 import 'package:banking_app/theme/color.dart';
 import 'package:flutter/material.dart';
@@ -39,11 +40,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
   }
 
   Widget getBody() {
-    List items = [
-      "18 199.24",
-      "21 021.43",
-      "32 543.76",
-    ];
+   
     var size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -59,7 +56,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: List.generate(items.length, (index) {
+                    children: List.generate(balanceLists.length, (index) {
                       return Padding(
                         padding: const EdgeInsets.only(right: 20),
                         child: Container(
@@ -75,7 +72,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 5),
                                     child: Text(
-                                      "\$",
+                                      balanceLists[index]['currency'],
                                       style: TextStyle(
                                           fontSize: 17,
                                           color: index == 0
@@ -88,7 +85,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
                                     width: 5,
                                   ),
                                   Text(
-                                    items[index],
+                                    balanceLists[index]['amount'],
                                     style: TextStyle(
                                         fontSize: 35,
                                         color: index == 0
@@ -102,7 +99,7 @@ class _DashbaordPageState extends State<DashbaordPage> {
                                 height: 8,
                               ),
                               Text(
-                                "EUR - Euro",
+                                balanceLists[index]['description'],
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: white.withOpacity(0.5),

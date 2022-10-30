@@ -1,3 +1,4 @@
+import 'package:banking_app/data_json/card_json.dart';
 import 'package:banking_app/data_json/card_operations_json.dart';
 import 'package:banking_app/theme/color.dart';
 import 'package:flutter/material.dart';
@@ -60,12 +61,15 @@ class _CardPageState extends State<CardPage> {
             height: 240,
             child: PageView(
               controller: controller,
-              children: <Widget>[
-                getCards(),
-                Center(
-                  child: Text('Second Page'),
-                ),
-              ],
+              children: List.generate(cardLists.length, (index) {
+                return getCards(
+                   cardLists[index]['amount'],
+                    cardLists[index]['currency'],
+                  cardLists[index]['card_number'],
+                  cardLists[index]['valid_date'],
+                  cardLists[index]['bg_color'],
+                );
+              }),
             ),
           ),
           SizedBox(
@@ -195,7 +199,7 @@ class _CardPageState extends State<CardPage> {
     );
   }
 
-  Widget getCards() {
+  Widget getCards(amount,currency,cardNumber, validDate, bgColor) {
     var size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -206,7 +210,7 @@ class _CardPageState extends State<CardPage> {
             Padding(
               padding: const EdgeInsets.only(top: 5),
               child: Text(
-                "\$",
+                currency,
                 style: TextStyle(
                     fontSize: 17, color: black, fontWeight: FontWeight.bold),
               ),
@@ -215,7 +219,7 @@ class _CardPageState extends State<CardPage> {
               width: 5,
             ),
             Text(
-              "18 199.24",
+             amount,
               style: TextStyle(
                   fontSize: 35, color: black, fontWeight: FontWeight.bold),
             ),
@@ -228,7 +232,7 @@ class _CardPageState extends State<CardPage> {
           width: size.width * 0.85,
           height: 170,
           decoration: BoxDecoration(
-              color: primary, borderRadius: BorderRadius.circular(12)),
+              color: bgColor, borderRadius: BorderRadius.circular(12)),
           child: Padding(
             padding: const EdgeInsets.all(15.0),
             child: Column(
@@ -248,7 +252,7 @@ class _CardPageState extends State<CardPage> {
                       height: 15,
                     ),
                     Text(
-                      "5436 5436 **** 6643",
+                      cardNumber,
                       style: TextStyle(
                           color: white.withOpacity(0.8),
                           fontSize: 20,
@@ -271,7 +275,7 @@ class _CardPageState extends State<CardPage> {
                           height: 4,
                         ),
                         Text(
-                          "08 / 24",
+                          validDate,
                           style: TextStyle(color: white, fontSize: 13),
                         ),
                       ],
