@@ -1,4 +1,9 @@
-# banking_app
+# Banking App UI
+
+- [Support me on Patreon](https://www.patreon.com/sopheamenvan?fan_landing=true)
+- [Watch on youtube](https://youtu.be/IGGXL05YJtw)
+
+![Banking App UI](https://user-images.githubusercontent.com/16510597/200475068-87c2d83a-d167-4d4e-b873-5b6099832c39.png)
 
 A new Flutter project.
 
